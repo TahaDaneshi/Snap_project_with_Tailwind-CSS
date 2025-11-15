@@ -950,13 +950,13 @@ video {
   stroke: #323232;
 }
 
-.stroke-\[\] {
+/* .stroke-\[\] {
   stroke-width: ;
-}
+} */
 
 .object-cover {
   -o-object-fit: cover;
-     object-fit: cover;
+    object-fit: cover;
 }
 
 .px-2 {
