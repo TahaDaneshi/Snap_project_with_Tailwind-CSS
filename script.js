@@ -8,6 +8,7 @@ const imagesSliderArray = [
 const slider = document.getElementById("slider")
 const controlsSliderArray = document.getElementsByClassName('controls-slider')
 const darkMode = document.getElementsByClassName("darkMode");
+const productsSection = document.getElementById('products');
 const modeIcons = [
   `<svg
   xmlns="http://www.w3.org/2000/svg"
@@ -25,10 +26,44 @@ const modeIcons = [
 </svg>`,
   `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`
 ]
+const iconsProduct = [
+  './src/img/icons/taxi.svg',
+  './src/img/icons/train.svg',
+  './src/img/icons/shop.svg',
+  './src/img/icons/pickup.svg',
+  './src/img/icons/pharmacy.svg',
+  './src/img/icons/moving.svg',
+  './src/img/icons/investment.svg',
+  './src/img/icons/intflight.svg',
+  './src/img/icons/wallet.png',
+  './src/img/icons/spdiscount.png',
+  './src/img/icons/Pro.png',
+  './src/img/icons/insdiscount.png',
+  './src/img/icons/fdom-t.png'
+]
 let flagSliderImage = 0;
 
 // functions 
 
+function createProduct() {
+  iconsProduct.forEach(element => {
+    productsSection.insertAdjacentHTML('beforeend', `
+      <div class="w-1/3 my-4">
+        <div class="w-3/4 bg-white rounded-2xl flex lg:flex-row flex-col shadow py-3 px-2 items-center">
+          <img class="rounded-xl flex lg:justify-center" src="${element}" width="65" height="65"
+            alt="" />
+          <div class="flex flex-col justify-center lg:items-start items-center lg:text-right text-center">
+            <h3 class="font-iran_Bold mx-3 lg:text-right text-center">
+              تاکسی اینترنتی
+            </h3>
+            <p class="font-iran_Light md:flex hidden text-text_nav mx-3 lg:text-right text-center">
+              خدماتی برای همه عصر ها
+            </p>
+          </div>
+        </div>`)
+  });
+};
+createProduct();
 
 // Change Mode
 function changeDarkMode(flag) {
