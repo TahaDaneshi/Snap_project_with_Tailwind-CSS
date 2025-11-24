@@ -31,15 +31,13 @@ let flagSliderImage = 0;
 
 
 // Change Mode
-let flagMode = 0;
-function changeDarkMode() {
+function changeDarkMode(flag) {
   document.documentElement.classList.toggle("dark");
   for (i = 0; i < darkMode.length; i++) {
-    darkMode[i].innerHTML = modeIcons[flagMode];
+    darkMode[i].innerHTML = modeIcons[flag];
   }
-
 }
-changeDarkMode();
+changeDarkMode(1);
 
 function changeSpanActive() {
   for (let i = 0; i < controlsSliderArray.length; i++) {
@@ -60,7 +58,7 @@ setInterval(() => {
   slider.setAttribute("src", imagesSliderArray[flagSliderImage])
 }, 3000)
 
-// Events
+// EVENTS
 
 for (let i of controlsSliderArray) {
   i.addEventListener("click", (i) => {
@@ -69,5 +67,20 @@ for (let i of controlsSliderArray) {
     slider.setAttribute("src", imagesSliderArray[i.target.dataset.number])
 
     changeSpanActive()
+  })
+}
+
+// change mode button
+for (i = 0; i < darkMode.length; i++) {
+  let flagMode = 1;
+  darkMode[i].addEventListener('click', function () {
+    if (flagMode) {
+      changeDarkMode(0);
+      flagMode = 0
+    } else {
+      changeDarkMode(1);
+      flagMode = 1;
+    }
+
   })
 }
